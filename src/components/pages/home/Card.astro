@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import { findImage } from "~utils/image";
+const { data } = Astro.props;
+const cover = (await findImage(`~/assets/images/${data.image}`)) as ImageMetadata | undefined;
+---
+<div class="card">
+    <a class="card-inner" href={data.link}>
+        <div class="card-cover">
+            <div class="card-cover-img">
+                {cover && <Image src={cover} crossorigin="anonymous" referrerpolicy="no-referrer" alt={data.name} {...data.cover} />}
+            </div>
+            <div class="card-cover-or">
+                <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon" data-v-ee146a3a="" style="translate: none; rotate: none; scale: none; transform: rotate(180deg);"><path d="M7.41908 4.56679L6.13722 0L4.85418 4.92566L0 6L4.85418 7.25435L6.13722 12L7.3276 7.25435L12 6L7.41908 4.56679Z" fill="currentColor" data-v-ee146a3a="" style="opacity: 1; visibility: inherit;"></path></svg>
+            </div>
+        </div>
+        <div class="card-title">
+            <!-- <div class="card-title-ic">
+                <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon" data-v-ee146a3a="" style="translate: none; rotate: none; scale: none; transform: rotate(180deg);"><path d="M7.41908 4.56679L6.13722 0L4.85418 4.92566L0 6L4.85418 7.25435L6.13722 12L7.3276 7.25435L12 6L7.41908 4.56679Z" fill="currentColor" data-v-ee146a3a="" style="opacity: 1; visibility: inherit;"></path></svg>
+            </div> -->
+            <div class="card-title-txt">{data.name}</div>
+        </div>
+    </a>
+</div>
+<style lang="scss">
+    @use '~/assets/styles/mixins' as *;
+
+    .card {
+        &-title {
+            font-family: 'PP Editorial New';
+            display: flex;
+            gap: 0 1.5rem;
+            font-size: 3.2rem;
+            @include hover {
+                &-ic {
+                    transform: rotate(180deg);
+                }
+            }
+            &-ic {
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-top: .3em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: transform .4s ease-in;
+            }
+        }
+        &-cover {
+            position: relative;
+            z-index: 1;
+            box-shadow: -.2rem .2rem 2rem .5rem rgba(0, 0, 0, 0.2);
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+
+            &-img {
+                position: relative;
+                z-index: 2;
+                --r: 2rem; /* the radius */
+                --s: 4.2rem;
+                --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%) no-repeat;
+
+                width: 35rem;
+                aspect-ratio: .78;
+                mask:
+                    calc(var(--s) + var(--r)) bottom var(--_m),
+                    bottom calc(var(--s) + var(--r)) left 0 var(--_m),
+                    radial-gradient(var(--s) at 0 100%,#0000 99%,#000 101%)
+                    var(--r) calc(-1*var(--r)) no-repeat,
+                    conic-gradient(from 180deg at calc(var(--s) + 2*var(--r)) calc(100% - var(--s) - 2*var(--r)),
+                    #0000 25%,#000 0);
+                img {
+                    object-fit: cover;
+                }
+            }
+            &-or {
+                position: absolute;
+                // z-index: 1;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(244, 244, 244, 0.1);
+                backdrop-filter: blur(.2rem);
+                transition: opacity .4s ease-in;
+
+                svg {
+                    position: absolute;
+                    bottom: 1.5rem;
+                    left: 1.5rem;
+                    width: 3rem;
+                    height: 3rem;
+                    fill: #fff;
+                }
+            }
+        }
+    }
+</style>

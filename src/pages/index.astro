@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import pages from '../data/pages.json';
+import Card from '~/components/pages/home/Card.astro';
+---
+<Layout title="Bear Plus playground">
+	<main class="main">
+		<div class="home">
+			<div class="container fluid">
+				<div class="home-col left-side">
+					<div class="home-title">playground</div>
+					<div class="home-sub">
+						<span class="txt-white">play·ground</span>
+						<br/>
+						<span>/'plāˌground/</span>
+						<br/>
+						<br/>
+						<i>noun</i>
+						<br/>
+						<br/>
+						<span>1.</span>
+						<br/>
+						<span>discovering the universe, one playground at a time.</span>
+						<br/>
+						<br/>
+						<span>2.</span>
+						<br/>
+						<span>in the technical world, a playground serves as a dynamic testing ground, where new ideas and innovations are brought to life through experimentation.</span>
+					</div>
+				</div>
+				<div class="home-col right-side">
+					<div class="home-listing">
+						<div class="home-listing-inner">
+							{pages.map((el) => (
+								<div class="home-card">
+									<Card data={el} />
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+<style lang="scss">
+	.main {
+		&:before {
+			content: '';
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			left: 0;
+			top: 0;
+			background: linear-gradient(180deg, #080809 70%, #4F5963 100%);
+		}
+	}
+	.home {
+		position: relative;
+		color: #f4f4f4;
+		padding-top: 10rem;
+		contain: paint;
+		.container {
+			display: flex;
+		}
+		&-col {
+			width: 50%;
+		}
+		&-title {
+			font-size: 10rem;
+			// text-transform: uppercase;
+			// font-weight: 800;
+			margin-bottom: 6rem;
+		}
+		&-sub {
+			font-family: 'GT-America';
+			font-weight: 300;
+			font-size: 1.4rem;
+			color: #C0C0C0;
+			line-height: 1em;
+			max-width: 45rem;
+			.txt-white {
+				color: #fff;
+				font-size: 1.5rem;
+				line-height: 1.2em;
+			}
+		}
+		&-listing {
+			&-inner {
+				display: flex;
+			}
+		}
+		&-card {
+			&:not(:first-child) {
+				margin-left: -6rem;
+			}
+		}
+	}
+</style>
