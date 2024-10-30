@@ -1,0 +1,96 @@
+
+@font-face {
+    font-family: 'GT-America';
+    src: url('/fonts/GTAmericaMono-LightItalic.woff2') format('woff2'),
+    url('/fonts/GTAmericaMono-LightItalic.woff') format('woff');;
+    font-weight: 300;
+    font-style: italic;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'GT-America';
+    src: url('/fonts/GTAmericaMono-Light.woff2') format('woff2'),
+    url('/fonts/GTAmericaMono-Light.woff') format('woff');;
+    font-weight: 300;
+    font-style: normal;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'GT-America';
+    src: url('/fonts/GTAmericaMono-Regular.woff2') format('woff2'),
+    url('/fonts/GTAmericaMono-Regular.woff') format('woff');;
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('/fonts/TWKEverett-Regular.woff2') format('woff2'),
+        url('/fonts/TWKEverett-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('/fonts/TWKEverett-Black.woff2') format('woff2'),
+        url('/fonts/TWKEverett-Black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'PP Editorial New';
+    src: url('/fonts/PPEditorialNew-UltralightItalic.woff2') format('woff2'),
+        url('/fonts/PPEditorialNew-UltralightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Editorial New';
+    src: url('/fonts/PPEditorialNew-Ultralight.woff2') format('woff2'),
+        url('/fonts/PPEditorialNew-Ultralight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-rendering: optimizeSpeed;
+    text-rendering: optimizeSpeed;
+    font-kerning: none;
+    font-size: 0.5787037037vw;
+    font-family: 'TWK Everett';
+
+    @media only screen and (max-width: 1729px) and (min-width: 991px) {
+        @media screen and (min-aspect-ratio: 1600 / 800) {
+            font-size: 0.9259259259vh;
+        }
+    }
+    @media only screen and (min-width: 1728px) {
+        font-size: 10px;
+    }
+    @media screen and (max-width: 991px) {
+        font-size: 1.0090817356vw;
+    }
+    @media screen and (max-width: 767px) {
+        font-size: 1.8vw;
+    }
+
+    @media screen and (max-width: 476px) {
+        font-size: 2.667vw;
+    }
+    &.lenis {
+        height: auto;
+    }
+}
+
+body {
+    font-size: 1.6rem;
+    font-weight: 400;
+}

@@ -1,0 +1,104 @@
+@use 'mixins' as *;
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+html {
+    background-color: #fff;
+    &.lenis {
+        height: auto;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+button,
+input,
+textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    * {
+        pointer-events: none;
+    }
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    pointer-events: none;
+    user-select: none;
+    content-visibility: auto;
+    &.img-h {
+        height: 100%;
+        width: auto;
+    }
+    &.img-fill {
+    height: 100%;
+    object-fit: cover;
+    }
+    &.img-fit {
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+:root {
+    --container-width: 1728px;
+    --container-padding: 6rem;
+
+    @include md {
+        --container-padding: 4rem;
+    }
+    @include sm {
+        --container-padding: 2rem;
+    }
+}
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    max-width: var(--container-width);
+    &.fluid {
+        max-width: none;
+    }
+    &.calc-h {
+        height: 100%;
+    }
+}
+
+.grid {
+    @include grid-col(16, 2rem);
+    @include md {
+        @include grid-col(12, 2rem);
+    }
+    @include sm {
+        @include grid-col(4, 2rem);
+    }
+}
