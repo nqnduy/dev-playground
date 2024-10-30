@@ -1,16 +1,16 @@
 [{
-    "name": "Bio/Gen Corp Identity",
+    "name": "Grid",
 
     "link": "/3d-sphere",
     "image": "3d-sphere.jpg"
 },
 {
-    "name": "Modern Loneliness Campaign",
+    "name": "3D",
     "link": "/3d-sphere",
     "image": "flag.jpg"
 },
 {
-    "name": "CRT Emulation Project",
+    "name": "Button",
     "link": "/3d-sphere",
     "image": "sub-2.jpg"
 }]
