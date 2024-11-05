@@ -25,7 +25,7 @@ const { name, type = [] } = Astro.props;
     .demo-card {
         box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
         color: rgba(244, 244, 244, 1);
-        background-color: #ffffff1a;
+        background-color: #34343d;
         border-radius: 1.2rem;
         position: relative;
         &-content {
@@ -33,7 +33,7 @@ const { name, type = [] } = Astro.props;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #171717;
+            background: linear-gradient(to top, #000000, #181818);
             margin: .1rem;
             border-top-left-radius: 1.2rem;
             border-top-right-radius: 1.2rem;
@@ -42,7 +42,7 @@ const { name, type = [] } = Astro.props;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #171717;
+            background-color: #000000;
             border-bottom-left-radius: 1.2rem;
             border-bottom-right-radius: 1.2rem;
             display: flex;
@@ -68,11 +68,11 @@ const { name, type = [] } = Astro.props;
 				font-weight: 300;
                 font-size: 1.2rem;
                 padding: .3rem 1.2rem;
-                border: 1px solid #ffffff1a;
+                border: 1px solid #34343d;
                 transition: color .65s cubic-bezier(.6,0,.3,1), background-color .65s cubic-bezier(.6,0,.3,1);
                 &.active {
                     color: #f4f4f4;
-                    background-color: #ffffff1a;
+                    background-color: #34343d;
                 }
                 &:hover {
                     color: #f4f4f4e4;
@@ -84,9 +84,12 @@ const { name, type = [] } = Astro.props;
 
 <script>
     document.querySelectorAll('.demo-card-mode-item').forEach((el, idx) => {
+        let card = el.closest('.demo-card');
         el.addEventListener('click', () => {
-            document.querySelectorAll('.demo-card-mode-item').forEach((el, i) => el.classList.toggle('active', i === idx));
-            (el.parentElement.parentElement.querySelector('.demo-card-content-inner > *') as HTMLElement).dataset.mode = el.textContent;
+            card.querySelectorAll('.demo-card-mode-item').forEach((el) => el.classList.remove('active'));
+            el.classList.add('active');
+
+            (card.querySelector('.demo-card-content-inner > *') as HTMLElement).dataset.mode = el.textContent;
         });
     });
 </script>

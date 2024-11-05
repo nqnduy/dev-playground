@@ -20,6 +20,7 @@ import ButtonContent from "~/components/pages/button/index.astro";
 							<br />
 							<span
 								>Buttons are used to interact with the user.
+								<br/>
 								They are used to trigger an action or event,
 								such as submitting a form or opening a dialog.</span
 							>
@@ -30,7 +31,7 @@ import ButtonContent from "~/components/pages/button/index.astro";
 			<div class="button-page-content">
 				<div class="container">
 					<div class="button-page-content-wrap">
-                  <ButtonContent />
+						<ButtonContent />
 					</div>
 				</div>
 			</div>
@@ -40,6 +41,7 @@ import ButtonContent from "~/components/pages/button/index.astro";
 
 <style lang="scss">
 	.main {
+		background-color: black;
 		&:before {
 			content: "";
 			position: fixed;
@@ -47,20 +49,22 @@ import ButtonContent from "~/components/pages/button/index.astro";
 			height: 100vh;
 			left: 0;
 			top: 0;
-			background: linear-gradient(180deg, #080809 70%, #4f5963 100%);
+			opacity: .4;
+			background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCIgd2lkdGg9IjcwMCIgaGVpZ2h0PSI3MDAiPjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iZ2dncmFpbi1ncmFkaWVudCIgcj0iMC41Ij4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ4NTE2NyI+PC9zdG9wPgogICAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzIxMjYyYSI+PC9zdG9wPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMzAzMDNmZiI+PC9zdG9wPgogICAgPC9yYWRpYWxHcmFkaWVudD48ZmlsdGVyIGlkPSJnZ2dyYWluLWZpbHRlciIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBwcmltaXRpdmVVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+CiAgPGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNzMiIG51bU9jdGF2ZXM9IjIiIHNlZWQ9IjE1MSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgeD0iMCUiIHk9IjAlIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXN1bHQ9InR1cmJ1bGVuY2UiPjwvZmVUdXJidWxlbmNlPgogIDxmZUNvbG9yTWF0cml4IHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49InR1cmJ1bGVuY2UiIHJlc3VsdD0iY29sb3JtYXRyaXgiPjwvZmVDb2xvck1hdHJpeD4KICA8ZmVDb21wb25lbnRUcmFuc2ZlciB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJjb2xvcm1hdHJpeCIgcmVzdWx0PSJjb21wb25lbnRUcmFuc2ZlciI+CiAgICA8ZmVGdW5jUiB0eXBlPSJsaW5lYXIiIHNsb3BlPSIzIj48L2ZlRnVuY1I+CiAgICA8ZmVGdW5jRyB0eXBlPSJsaW5lYXIiIHNsb3BlPSIzIj48L2ZlRnVuY0c+CiAgICA8ZmVGdW5jQiB0eXBlPSJsaW5lYXIiIHNsb3BlPSIzIj48L2ZlRnVuY0I+CiAgPC9mZUNvbXBvbmVudFRyYW5zZmVyPgogIDxmZUNvbG9yTWF0cml4IHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49ImNvbXBvbmVudFRyYW5zZmVyIiByZXN1bHQ9ImNvbG9ybWF0cml4MiIgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjEgMCAwIDAgMAogICAgICAgICAgMCAxIDAgMCAwCiAgICAgICAgICAwIDAgMSAwIDAKICAgICAgICAgIDAgMCAwIDIzIC0xNSI+PC9mZUNvbG9yTWF0cml4PgogIDwvZmlsdGVyPjwvZGVmcz48Zz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dnZ3JhaW4tZ3JhZGllbnQpIj48L3JlY3Q+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idHJhbnNwYXJlbnQiIGZpbHRlcj0idXJsKCNnZ2dyYWluLWZpbHRlcikiIG9wYWNpdHk9IjAuMiIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBvdmVybGF5Ij48L3JlY3Q+PC9nPjwvc3ZnPg==") no-repeat;
+			background-size: 100% 120%;
 		}
 	}
 	.button-page {
 		position: relative;
 		color: #f4f4f4;
-		padding-block: 10rem;
+		padding-block: 5rem;
 		&-hero {
-         margin-bottom: 1.5rem;
+			margin-bottom: 1.5rem;
 			&-inner {
-				padding: 2.5rem;
-				border: 1px solid #ffffff1a;
+				padding: 2.5rem 2.5rem 3.2rem;
+				border: 1px solid #34343d;
 				border-radius: 2.5rem;
-				background: linear-gradient(to top, #111111, #181818);
+				background: linear-gradient(to top, #000000, #181818);
 			}
 			&-title {
 				font-size: 8rem;
@@ -79,7 +83,7 @@ import ButtonContent from "~/components/pages/button/index.astro";
 				font-size: 1.4rem;
 				color: #c0c0c0;
 				line-height: 1em;
-				max-width: 50rem;
+				max-width: 42rem;
 				.txt-white {
 					color: #fff;
 					font-size: 1.5rem;
@@ -91,8 +95,11 @@ import ButtonContent from "~/components/pages/button/index.astro";
 			&-wrap {
 				display: grid;
 				grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
+				gap: 1.5rem;
 			}
 		}
+	}
+	.noise {
+		display: none;
 	}
 </style>

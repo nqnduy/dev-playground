@@ -25,29 +25,33 @@
             from { transform: scale(500); }
             to { transform: scale(0); }
         }
+        &-txt {
+            position: relative;
+            z-index: 2;
+        }
         &[data-mode='filled'] {
-            // background-color: #4f5963;
-            // .btn-round {
-            //     background-color: rgba(255, 255, 255, 0);
-            // }
-            // @include hover {
-            //     background-color: transparent;
-            // }
+            background-color: #4f5963;
+            .btn-round {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            @include hover {
+                border: 1px solid #ffffff5b;
+                background-color: transparent;
+            }
         }
         &-round {
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, .3);
+            background-color: #4f5963;
             position: absolute;
             top: 0;
             left: 0;
-            @include size(.1rem);
             z-index: 1;
             pointer-events: none;
-            animation: scale-down .8s cubic-bezier(.6,0,.3,1);
+            animation: scale-down .8s ease-in-out;
         }
         @include hover {
             &-round {
-                animation: scale-up .8s forwards;
+                animation: scale-up .5s forwards;
             }
         }
     }
@@ -67,6 +71,8 @@
             round.style.top = `${btn.offsetHeight}px`;
         }
         round.style.left = `${offsetBtn.x}px`;
+        round.style.width = `1px`;
+        round.style.height = `1px`;
     }
     btn.addEventListener('mouseenter', roundTrans);
     btn.addEventListener('mouseleave', roundTrans);
