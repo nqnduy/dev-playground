@@ -1,0 +1,14 @@
+---
+import DemoCard from "~components/pages/button/DemoCard.astro";
+import LinkHoverLine from "~/components/pages/button/LinkHoverLine.astro";
+import LinkHoverUnderline from "~components/pages/button/LinkHoverUnderline.astro";
+import Button01 from "~components/pages/button/Button-01.astro";
+import Button02 from "~components/pages/button/Button-02.astro";
+import Button03 from "~components/pages/button/Button-03.astro";
+import Button04 from "~components/pages/button/Button-04.astro";
+---
+<DemoCard name={'Hover Underline'} type={["gradient"]}><LinkHoverUnderline /></DemoCard>
+<DemoCard name={'Hover Line'} type={["gradient", "revert"]}><LinkHoverLine /></DemoCard>
+<DemoCard name={'Button • 01'} type={["gradient"]}><Button01 /></DemoCard>
+<DemoCard name={'Button • 02'}><Button02/></DemoCard>
+<DemoCard name={'Button • 03'} type={["filled"]}><Button03/></DemoCard>

@@ -1,0 +1,83 @@
+---
+---
+<button class="btn">
+    <div class="fs-16 btn-txt">Hover me</div>
+    <div class="btn-circle">
+        <div class="btn-circle-arrow">
+            <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.82475e-07 5.625L7.625 5.625L4.125 9.125L5 10L10 5L5 -4.37114e-07L4.125 0.874999L7.625 4.375L4.91753e-07 4.375L3.82475e-07 5.625Z" fill="#f4f4f4"></path>
+            </svg>
+        </div>
+    </div>
+</button>
+
+<style lang="scss">
+    @use '~styles/mixins' as *;
+
+    .btn {
+        padding: 2rem 3.2rem;
+        color: #f4f4f4;
+        border: 1px solid #ffffff1a;
+        border-radius: 100vmax;
+        transition: border-color .65s cubic-bezier(.6,0,.3,1) .1s;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        &-txt {
+            transition: transform .65s cubic-bezier(.785,.135,.15,.86);
+        }
+        &-circle {
+            @include size(2.8rem);
+
+            background-color: #4f5963;
+            border-radius: 50%;
+            position: absolute;
+            right: 1.1rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            clip-path: circle(0 at 50% 50%);
+            transition: clip-path .65s cubic-bezier(.785,.135,.15,.86);
+            &-arrow {
+                @include size(1rem);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            svg {
+                overflow: hidden;
+            }
+            path {
+                transform: translateX(-2.3rem);
+                transition: transform .65s cubic-bezier(.785,.135,.15,.86);
+            }
+        }
+        .btn-txt {
+            grid-area: 1/1/2/2;
+            line-height: .9;
+            transition: transform .65s cubic-bezier(.6,0,.3,1);
+
+            &.under {
+                transform: translate(0, 100%);
+            }
+        }
+        @include hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            &-txt {
+                transform: translateX(-1.3rem);
+            }
+            &-circle {
+                clip-path: circle(50% at 50% 50%);
+                svg {
+                    path {
+                        transform: translateX(0);
+                    }
+                }
+            }
+        }
+    }
+</style>

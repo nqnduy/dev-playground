@@ -1,0 +1,80 @@
+---
+---
+<button class="btn">
+    <div class="btn-inner">
+        <div class="fs-16 btn-txt above">Hover me</div>
+        <div class="fs-16 btn-txt under">Hover me</div>
+    </div>
+    <div class="btn-bg-border"></div>
+</button>
+
+<style lang="scss">
+    @use '~styles/mixins' as *;
+
+    .btn {
+        padding: 2rem 3.2rem;
+        color: #f4f4f4;
+        border: 1px solid #ffffff1a;
+        border-radius: 100vmax;
+        transition: border-color .65s cubic-bezier(.6,0,.3,1) .1s;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        &-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            overflow: hidden;
+        }
+        &-txt {
+            grid-area: 1/1/2/2;
+            line-height: .9;
+            transition: transform .65s cubic-bezier(.6,0,.3,1);
+
+            &.under {
+                transform: translate(0, 100%);
+            }
+        }
+        &-bg-border {
+            opacity: 0;
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity .6s ease-in-out, filter .6s ease-in-out;
+            position: absolute;
+            inset: -.1rem;
+            background-size: 200% 100%;
+            background-image: linear-gradient(90deg, #d55b9c, #5237bd 30%, #ff004b 50%, #5237bd 70%, #d55b9c);
+
+            background-clip: border-box;
+            border: 1px solid transparent;
+            border-radius: inherit;
+            animation: grad-anim-odd 6s linear infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            filter: brightness(1);
+        }
+        @include hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            &-txt {
+                &.above {
+                    transform: translate(0, -100%);
+                }
+                &.under {
+                    transform: translate(0, 0);
+                }
+            }
+        }
+        &[data-mode="gradient"] {
+            @include hover {
+                .btn-bg-border {
+                    opacity: 1;
+                    filter: brightness(1.2);
+                }
+            }
+        }
+    }
+</style>

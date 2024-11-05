@@ -1,0 +1,98 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import ButtonContent from "~/components/pages/button/index.astro";
+---
+<Layout>
+	<main class="main">
+		<div class="button-page">
+			<div class="button-page-hero">
+				<div class="container">
+					<div class="button-page-hero-inner">
+						<div class="button-page-hero-title">Buttons</div>
+						<div class="button-page-hero-sub">
+							<div class="txt-white">but·ton</div><span
+								>/'bətn/</span
+							>
+							<br />
+							<br />
+							<i>noun</i>
+							<br />
+							<br />
+							<span
+								>Buttons are used to interact with the user.
+								They are used to trigger an action or event,
+								such as submitting a form or opening a dialog.</span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="button-page-content">
+				<div class="container">
+					<div class="button-page-content-wrap">
+                  <ButtonContent />
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style lang="scss">
+	.main {
+		&:before {
+			content: "";
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			left: 0;
+			top: 0;
+			background: linear-gradient(180deg, #080809 70%, #4f5963 100%);
+		}
+	}
+	.button-page {
+		position: relative;
+		color: #f4f4f4;
+		padding-block: 10rem;
+		&-hero {
+         margin-bottom: 1.5rem;
+			&-inner {
+				padding: 2.5rem;
+				border: 1px solid #ffffff1a;
+				border-radius: 2.5rem;
+				background: linear-gradient(to top, #111111, #181818);
+			}
+			&-title {
+				font-size: 8rem;
+				line-height: 1.1;
+				font-weight: 800;
+				margin-bottom: 1rem;
+				text-transform: uppercase;
+				background-image: linear-gradient(to left, #828282, #fff);
+				color: transparent;
+				background-clip: text;
+				margin-bottom: 2rem;
+			}
+			&-sub {
+				font-family: "GT-America";
+				font-weight: 300;
+				font-size: 1.4rem;
+				color: #c0c0c0;
+				line-height: 1em;
+				max-width: 50rem;
+				.txt-white {
+					color: #fff;
+					font-size: 1.5rem;
+					line-height: 1.2em;
+				}
+			}
+		}
+		&-content {
+			&-wrap {
+				display: grid;
+				grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+			}
+		}
+	}
+</style>

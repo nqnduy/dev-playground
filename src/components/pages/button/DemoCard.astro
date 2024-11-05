@@ -1,0 +1,92 @@
+---
+const { name, type = [] } = Astro.props;
+---
+<div class="demo-card">
+    <div class="demo-card-content">
+        {type.length > 0 && (
+            <div class="demo-card-mode">
+                {['default', ...type].map((el, idx) => (
+                    <button class:list={['demo-card-mode-item', { 'active': idx === 0 }]}>{el}</button>
+                ))}
+            </div>
+        )}
+        <div class="demo-card-content-inner">
+            <slot/>
+        </div>
+    </div>
+    <div class="demo-card-info">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon" data-v-ee146a3a="" style="translate: none; rotate: none; scale: none; transform: rotate(180deg);"><path d="M7.41908 4.56679L6.13722 0L4.85418 4.92566L0 6L4.85418 7.25435L6.13722 12L7.3276 7.25435L12 6L7.41908 4.56679Z" fill="currentColor" data-v-ee146a3a="" style="opacity: 1; visibility: inherit;"></path></svg>
+        <span class="fs-14">{name}</span>
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon" data-v-ee146a3a="" style="translate: none; rotate: none; scale: none; transform: rotate(180deg);"><path d="M7.41908 4.56679L6.13722 0L4.85418 4.92566L0 6L4.85418 7.25435L6.13722 12L7.3276 7.25435L12 6L7.41908 4.56679Z" fill="currentColor" data-v-ee146a3a="" style="opacity: 1; visibility: inherit;"></path></svg>
+    </div>
+</div>
+
+<style lang="scss">
+    .demo-card {
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+        color: rgba(244, 244, 244, 1);
+        background-color: #ffffff1a;
+        border-radius: 1.2rem;
+        position: relative;
+        &-content {
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #171717;
+            margin: .1rem;
+            border-top-left-radius: 1.2rem;
+            border-top-right-radius: 1.2rem;
+        }
+        &-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #171717;
+            border-bottom-left-radius: 1.2rem;
+            border-bottom-right-radius: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            padding: 1.2rem;
+            margin: .1rem;
+            svg {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+        &-mode {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0 .6rem;
+            &-item {
+                color: #c0c0c0;
+                border-radius: 3rem;
+				font-family: "GT-America";
+				font-weight: 300;
+                font-size: 1.2rem;
+                padding: .3rem 1.2rem;
+                border: 1px solid #ffffff1a;
+                transition: color .65s cubic-bezier(.6,0,.3,1), background-color .65s cubic-bezier(.6,0,.3,1);
+                &.active {
+                    color: #f4f4f4;
+                    background-color: #ffffff1a;
+                }
+                &:hover {
+                    color: #f4f4f4e4;
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.demo-card-mode-item').forEach((el, idx) => {
+        el.addEventListener('click', () => {
+            document.querySelectorAll('.demo-card-mode-item').forEach((el, i) => el.classList.toggle('active', i === idx));
+            (el.parentElement.parentElement.querySelector('.demo-card-content-inner > *') as HTMLElement).dataset.mode = el.textContent;
+        });
+    });
+</script>

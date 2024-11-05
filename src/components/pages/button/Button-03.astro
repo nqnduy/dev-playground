@@ -1,0 +1,73 @@
+---
+
+---
+<button class="btn" data-btn="round">
+    <div class="fs-16 btn-txt">Hover me</div>
+    <span class="btn-round"></span>
+</button>
+<style lang="scss">
+    @use '~styles/mixins' as *;
+    .btn {
+        padding: 2rem 3.2rem;
+        color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 100vmax;
+        border: 1px solid #ffffff1a;
+        transition: color .4s ease-in-out, border-color .4s ease-in-out, background-color .4s ease-in-out;
+        overflow: hidden;
+        @keyframes scale-up {
+            to { transform: scale(500); }
+        }
+        @keyframes scale-down{
+            from { transform: scale(500); }
+            to { transform: scale(0); }
+        }
+        &[data-mode='filled'] {
+            // background-color: #4f5963;
+            // .btn-round {
+            //     background-color: rgba(255, 255, 255, 0);
+            // }
+            // @include hover {
+            //     background-color: transparent;
+            // }
+        }
+        &-round {
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, .3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include size(.1rem);
+            z-index: 1;
+            pointer-events: none;
+            animation: scale-down .8s cubic-bezier(.6,0,.3,1);
+        }
+        @include hover {
+            &-round {
+                animation: scale-up .8s forwards;
+            }
+        }
+    }
+</style>
+<script is:inline>
+    const percentage = (percent, total) => ((percent / 100) * total).toFixed(2);
+
+    let btn = document.querySelector("[data-btn='round']");
+    const getOffSet = (e) => ({ x: e.offsetX, y: e.offsetY });
+
+    const roundTrans = (e) => {
+        const offsetBtn = getOffSet(e);
+        const round = btn.querySelector('.btn-round');
+        if (offsetBtn.y < (btn.offsetHeight / 2)) {
+            round.style.top = `-1px`;
+        } else if (offsetBtn.y > percentage(60, btn.offsetHeight)) {
+            round.style.top = `${btn.offsetHeight}px`;
+        }
+        round.style.left = `${offsetBtn.x}px`;
+    }
+    btn.addEventListener('mouseenter', roundTrans);
+    btn.addEventListener('mouseleave', roundTrans);
+</script>
